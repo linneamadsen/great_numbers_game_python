@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+        <title>Great Number Game</title>
+    </head>
+    <body>
+        <h1>Welcome to the Great Number Game!</h1>
+        <p>I am thinking of a number between 1 and 100. Take a guess!</p>
+
+        {% if (session['result']) == "big": %}
+        <div id="too_big"><p>Too big!</p></div>
+        {% elif (session['result']) == "small": %}
+        <p>Too small!</p>
+        {% elif (session['result']) == "equal": %}
+        <p>equal!</p>
+        {% endif %}        
+        <form action='/guess' method='post'>
+            <input type="text" name="user_guess">
+            <input type="submit" value="submit your guess">
+        </form>
+
+    </body>
+</html>
